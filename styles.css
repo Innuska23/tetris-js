@@ -1,0 +1,111 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  min-height: 100svh;
+  background: linear-gradient(135deg, #c2e9fb, #a1c4fd, #c2e9fb);
+  font-family: "Segoe UI", Arial, sans-serif;
+  user-select: none;
+}
+
+.game-title {
+  color: #2d3436;
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.5);
+  letter-spacing: 3px;
+}
+
+.game-container {
+  position: relative;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 15px;
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.5),
+    inset 0 0 15px rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(5px);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(10, auto);
+  padding: 1vh;
+  gap: 0.4vh;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.7);
+  border: 2px solid rgba(255, 255, 255, 0.8);
+}
+
+.grid > div {
+  --cell-size: min(4vh, 7vw);
+  height: var(--cell-size);
+  width: var(--cell-size);
+  border-radius: 4px;
+  background-color: rgba(190, 210, 255, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  transition: background-color 0.2s ease;
+}
+
+.grid > div.active {
+  background-color: #4facfe;
+  box-shadow: 0 0 10px rgba(79, 172, 254, 0.5);
+}
+
+.grid > div.locked {
+  background-color: #00f2fe;
+  box-shadow: 0 0 10px rgba(0, 242, 254, 0.5);
+}
+
+.score-container {
+  position: absolute;
+  right: -150px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.4);
+  padding: 20px;
+  border-radius: 10px;
+  color: #2d3436;
+  text-align: center;
+  backdrop-filter: blur(5px);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+}
+
+.score {
+  font-size: 2rem;
+  margin: 10px 0;
+  color: #2d3436;
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
+}
+
+.next-piece {
+  margin-top: 20px;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 8px;
+}
+
+@media (max-width: 768px) {
+  .score-container {
+    position: static;
+    margin-top: 20px;
+    transform: none;
+  }
+
+  .game-container {
+    padding: 10px;
+  }
+
+  .game-title {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+}
