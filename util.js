@@ -48,3 +48,16 @@ export function getRandomElement(array) {
 export function convertPositionToIndex(row, column) {
   return row * PLAYFIELD_COLUMNS + column;
 }
+
+export function rotateMatrix(matrix) {
+  const N = matrix.length;
+  const rotateMatrix = [];
+  for (let i = 0; i < N; i++) {
+    rotateMatrix[i] = [];
+    for (let j = 0; j < N; j++) {
+      rotateMatrix[i][j] = matrix[N - j - 1][i];
+    }
+  }
+
+  return rotateMatrix;
+}
